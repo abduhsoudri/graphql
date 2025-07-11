@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GraphQL</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form" class="login-form">
+            <div>
+                <label for="identifier">Username or Email:</label>
+                <input type="text" id="identifier" name="identifier" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" id="login-button">Login</button>
+        </form>
+        <!-- Area to display error messages -->
+        <p id="error-message"></p>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="login.js"></script>
+</body>
+</html>
