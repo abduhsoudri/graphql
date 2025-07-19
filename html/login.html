@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GraphQL</title>
+    <link rel="icon" type="image/png" href="../assetes/icon.png">
+    <link rel="stylesheet" href="../style/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <img src="../assetes/GraphQL.png" alt="GraphQL Logo" class="top-logo">
+
+    <div class="wrapper">
+        <div class="form-headr">
+            <div class="titles">
+                <div class="title-login">Login</div>
+            </div>
+        </div>
+        
+        <form class="login-form" autocomplete="off">
+            
+            <div class="input-box">
+                <input type="text" class="input-field" id="log-email-nickname" required>
+                <label for="log-email-nickname" class="label">Email or Nickname</label>
+                <i class='bx bx-user-circle icon'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" class="input-field" id="log-password" required>
+                <label for="log-password" class="label">Password</label>
+                <i class='bx bx-hide icon' id="toggle-password-icon"></i>
+            </div>
+
+            <div id="error-message" class="error-display"></div>
+
+            <div class="input-box">
+                <button type="submit" class="btn-submit" id="logInBtn">
+                    <span>Submit</span>
+                    <i class='bx bx-log-in-circle'></i>
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="../scripts/login.js"></script>
+</body>
+</html>

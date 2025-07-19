@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile  - GraphQL </title>
+    <link rel="icon" type="image/png" href="../assetes/icon.png">
+    <link rel="stylesheet" href="../style/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <img src="../assetes/GraphQL.png" alt="GraphQL Logo" class="top-logo">
+    <button id="logoutBtn" class="btn-submit logout-btn">
+        <span>Logout</span>
+        <i class='bx bx-log-out-circle'></i>
+    </button>
+
+    <main class="dashboard-container">
+        <section class="profile-card">
+            <div class="profile-header">
+                <img src="../assetes/profile.png" alt="User Profile" class="profile-pic">
+                <div class="profile-info">
+                    <h1 id="user-name"></h1>
+                    <p id="user-login"></p>
+                </div>
+            </div>
+            <div class="profile-email">
+                <div class="stat-box">
+                    <span class="stat-label">Email</span>
+                    <span id="user-email" class="stat-value"></span>
+                </div>
+            </div>
+            <div class="profile-stats">
+                <div class="stat-box">
+                    <span class="stat-label">Level</span>
+                    <span id="user-level" class="stat-value"></span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Campus</span>
+                    <span id="user-campus" class="stat-value"></span>
+                </div>
+            </div>
+        </section>
+        <section class="xp-card-large">
+            <div class="xp-header">
+                <h2 id="total-xp" class="xp-amount"></h2>
+            </div>
+            <div class="activity-section">
+                <span class="activity-label">Last activity</span>
+                <hr class="divider">
+            </div>
+            <div id="last-projects-grid" class="projects-grid">
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../scripts/profile.js"></script>
+</body>
+</html>

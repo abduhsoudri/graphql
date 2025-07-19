@@ -1,5 +1,4 @@
 export const QUERIES = {
-    // Section 1: User Profile (name, login, email, campus)
     USER_PROFILE: `
     {
       user {
@@ -12,7 +11,6 @@ export const QUERIES = {
     }
     `,
   
-    // Section 1: User Level (highest level Module)
     USER_LEVEL: `
     {
       transaction(
@@ -28,7 +26,6 @@ export const QUERIES = {
     }
     `,
   
-    // Section 2: Total XP
     USER_XP_AGGREGATE: `
     {
       transaction_aggregate(
@@ -46,7 +43,6 @@ export const QUERIES = {
     }
     `,
   
-    // Section 2: Last 4 Projects with XP
     USER_LAST_PROJECTS: `
     {
       user {
@@ -64,7 +60,6 @@ export const QUERIES = {
     }
     `,
   
-    // Graph 2: Audit Ratio (pass/fail)
     USER_AUDITS: `
     {
       user {
@@ -83,7 +78,6 @@ export const QUERIES = {
     }
     `,
   
-    // Graph 1: XP progression over time (excluding piscine)
     USER_XP_PROGRESS: `
     {
       user {
@@ -104,4 +98,3 @@ export const QUERIES = {
     }
     `
   };
-  
