@@ -2,6 +2,7 @@ export const QUERIES = {
     USER_PROFILE: `
     {
       user {
+        id
         firstName
         lastName
         login
@@ -63,7 +64,6 @@ export const QUERIES = {
     USER_AUDITS: `
     {
       user {
-        auditRatio
         sucess: audits_aggregate(where: { closureType: { _eq: succeeded } }) {
           aggregate {
             count
@@ -77,23 +77,25 @@ export const QUERIES = {
       }
     }
     `,
-  
-    USER_XP_PROGRESS: `
-    {
-      user {
-        transactions(
-          where: {
-            type: { _eq: "xp" }
-            _and: [
-              { path: { _niregex: "piscine-go" } }
-              { path: { _niregex: "piscine-js/" } }
-            ]
-          }
-        ) {
-          amount
-          path
-          createdAt
+    PROJECT_XP: `
+    query {
+      transaction(
+        where: {
+          type: { _eq: "xp" },
+          userId: { _eq: 2 },
+          _and: [
+            { path: { _nlike: "%piscine%" } },
+            { path: { _nlike: "%checkpoint%" } },
+            { path: { _nlike: "%exercise%" } },
+            { path: { _nlike: "%div-01%" } }
+          ]
+        },
+        order_by: { createdAt: asc }
+      ) {
+        object {
+          name
         }
+        amount
       }
     }
     `

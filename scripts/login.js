@@ -1,58 +1,59 @@
+import { redirectToProfile } from './utlis.js';
+
 const SIGNIN_ENDPOINT = 'https://learn.zone01oujda.ma/api/auth/signin';
 
-const loginForm = document.querySelector(".login-form");
-const emailNicknameInput = document.getElementById("log-email-nickname");
-const passwordInput = document.getElementById("log-password");
-const submitButton = document.getElementById("logInBtn");
-const togglePasswordIcon = document.getElementById("toggle-password-icon");
-const errorDisplay = document.getElementById('error-message');
+export function loginPage() {
+    const loginForm = document.querySelector(".login-form");
+    if (!loginForm) return;
 
-loginForm.addEventListener("submit", async function(event) {
-    event.preventDefault();
+    const emailNicknameInput = document.getElementById("log-email-nickname");
+    const passwordInput = document.getElementById("log-password");
+    const submitButton = document.getElementById("logInBtn");
+    const togglePasswordIcon = document.getElementById("toggle-password-icon");
+    const errorDisplay = document.getElementById('error-message');
 
-    errorDisplay.textContent = '';
-    
-    const username = emailNicknameInput.value.trim();
-    const password = passwordInput.value;
-    
-    if (!username || !password) {
-        errorDisplay.textContent = "Please fill in all fields.";
-        return;
-    }
+    loginForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        errorDisplay.textContent = '';
+        
+        const username = emailNicknameInput.value.trim();
+        const password = passwordInput.value;
+        
+        submitButton.disabled = true;
+        submitButton.innerHTML = `<span>Signing In...</span><i class='bx bx-loader-alt bx-spin' ></i>`;
+        
+        try {
+            const encodedCredentials = btoa(`${username}:${password}`);
+            const response = await fetch(SIGNIN_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Authorization': `Basic ${encodedCredentials}` }
+            });
 
-    submitButton.disabled = true;
-    submitButton.innerHTML = `<span>Signing In...</span><i class='bx bx-loader-alt bx-spin' ></i>`;
-    
-    try {
-        const encodedCredentials = btoa(`${username}:${password}`);
-
-        const response = await fetch(SIGNIN_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Basic ${encodedCredentials}`
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Invalid credentials.");
             }
-        });
+            
+            const token = await response.json();
+            localStorage.setItem('JWT', token);
 
-        const data = await response.json();
+            submitButton.innerHTML = `<span>Success!</span><i class='bx bx-check-circle'></i>`;
+            setTimeout(() => {
+                redirectToProfile();
+            }, 1000);
 
-        if (!response.ok) {
-            throw new Error(data.error || "Invalid username or password.");
+        } catch (error) {
+            console.error("Login failed:", error.message);
+            errorDisplay.textContent = error.message;
+            submitButton.disabled = false;
+            submitButton.innerHTML = `<span>Submit</span><i class='bx bx-log-in-circle'></i>`;
         }
+    });
 
-        localStorage.setItem('JWT', data);
-
-        submitButton.innerHTML = `<span>Success!</span><i class='bx bx-check-circle'></i>`;
-        setTimeout(() => {
-            window.location.href = 'profile.html';
-        }, 1000);
-
-
-    } catch (error) {
-        console.error("Login failed:", error.message);
-        
-        errorDisplay.textContent = error.message;
-        
-        submitButton.disabled = false;
-        submitButton.innerHTML = `<span>Submit</span><i class='bx bx-log-in-circle'></i>`;
-    }
-});
+    togglePasswordIcon.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        togglePasswordIcon.classList.toggle('bx-show', !isPassword);
+        togglePasswordIcon.classList.toggle('bx-hide', isPassword);
+    });
+}

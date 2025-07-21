@@ -1,4 +1,4 @@
-function formatXpForCard(amount) {
+export function formatXpForCard(amount) {
     if (amount >= 1000000) {
         return { value: (amount / 1000000).toFixed(2), unit: 'MB' };
     }
@@ -8,7 +8,7 @@ function formatXpForCard(amount) {
     return { value: amount, unit: 'B' };
 }
 
-function formatXpForProject(amount) {
+export function formatXpForProject(amount) {
     if (amount >= 1000) {
         return `${Math.round(amount / 1000)} kB`;
     }

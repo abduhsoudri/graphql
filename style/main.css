@@ -41,132 +41,6 @@ body {
     opacity: 1;
 }
 
-.wrapper {
-    position: relative;
-    width: 430px;
-    height: 500px;
-    background-color: var(--form-background);
-    border-radius: 15px;
-    padding: 120px 32px 64px;
-    border: 1px solid var(--input-border-color);
-    box-shadow: 0 10px 30px var(--shadow-color);
-    transition: var(--transition-3s);
-}
-
-.form-headr {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 140px;
-    height: 70px;
-    background-color: var(--primary-color);
-    border-radius: 0 0 20px 20px;
-}
-
-.form-headr::before, .form-headr::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-}
-.form-headr::before {
-    left: -30px;
-    border-top-right-radius: 15px; 
-    box-shadow: 15px 0 0 0 var(--primary-color);
-}
-.form-headr::after {
-    right: -30px;
-    border-top-left-radius: 15px; 
-    box-shadow: -15px 0 0 0 var(--primary-color);
-}
-
-.title-login {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--white-color);
-    font-size: 24px;
-    transition: var(--transition-3s);
-}
-
-.login-form {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%;
-    transition: var(--transition-3s);
-}
-
-.input-box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 25px 0;
-}
-
-.input-field {
-    width: 100%;
-    height: 55px;
-    font-size: 16px;
-    background: var(--input-background);
-    color: var(--text-color);
-    padding: 0 20px 0 50px; 
-    border: 1px solid var(--input-border-color);
-    border-radius: 30px;
-    outline: none;
-    transition: var(--transition-3s);
-}
-
-.input-field:focus {
-    border-color: var(--primary-color);
-}
-
-.label {
-    position: absolute;
-    top: 50%;
-    left: 55px;
-    transform: translateY(-50%);
-    color: var(--secondary-color);
-    transition: all 0.2s ease;
-    cursor: text;
-}
-
-.input-field:focus ~ .label,
-.input-field:valid ~ .label {
-    top: -8px;
-    font-size: 12px;
-    background-color: var(--form-background); 
-    padding: 0 10px;
-    color: var(--primary-color);
-    left: 45px;
-}
-.input-field:valid ~ .label {
-    color: var(--secondary-color);
-}
-
-.input-box .icon {
-    position: absolute;
-    top: 50%;
-    left: 20px; 
-    transform: translateY(-50%);
-    color: var(--secondary-color);
-    font-size: 22px;
-    transition: color var(--transition-3s);
-}
-.input-field:focus ~ .icon {
-    color: var(--primary-color);
-}
-#toggle-password-icon {
-    cursor: pointer;
-}
-
 .btn-submit {
     display: flex;
     align-items: center;
@@ -200,23 +74,8 @@ body {
     gap: 10px;
 }
 
-.error-display {
-    color: #ef4444; 
-    font-size: 14px;
-    text-align: center;
-    min-height: 20px;
-    margin: -10px 0 15px 0;
-}
 
 @media only screen and (max-width: 564px) {
-    .wrapper {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-        margin: 0;
-        border: none;
-        padding: 120px 20px 40px;
-    }
     .top-logo {
         top: 20px;
         left: 20px;
