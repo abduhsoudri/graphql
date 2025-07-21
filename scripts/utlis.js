@@ -1,6 +1,6 @@
 
 export function redirectToLogin() {
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }
 
 export function redirectToProfile() {

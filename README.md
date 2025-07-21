@@ -23,8 +23,7 @@ graphql/
     ├── profile.css
     └── style.css
 ```
-#### hosting link 
-/
+
 ```
     hosting link - https://asoudri-graphql.netlify.app/
 ```
