@@ -1,8 +1,8 @@
 
 export function redirectToLogin() {
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 }
 
 export function redirectToProfile() {
-    window.location.href = 'html/profile.html';
+    window.location.href = 'profile.html';
 }
