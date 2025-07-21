@@ -25,5 +25,4 @@ graphql/
 ```
 
 ```
-    hosting link - https://asoudri-graphql.netlify.app/
 ```
