@@ -11,9 +11,6 @@ graphql/
 │   ├── GraphQL.png
 │   ├── icon.png
 │   └── profile.png
-├── html/
-│   ├── login.html
-│   └── profile.html
 ├── scripts/
 │   ├── login.js
 │   └── queries.js
@@ -22,7 +19,11 @@ graphql/
     ├── main.css
     ├── profile.css
     └── style.css
+├── login.html
+│── profile.html
+
 ```
 
 ```
+hosting link :  https://abduhsoudri.github.io/graphql/
 ```

@@ -22,10 +22,12 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: var(--background-color);
+    padding: 20px;
 }
 
 .top-logo {
@@ -75,9 +77,19 @@ body {
 }
 
 
+@media only screen and (max-width: 768px) {
+    .top-logo {
+        width: 120px;
+        top: 25px;
+        left: 25px;
+    }
+}
+
 @media only screen and (max-width: 564px) {
     .top-logo {
+        width: 100px;
         top: 20px;
-        left: 20px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }

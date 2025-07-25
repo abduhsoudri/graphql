@@ -1,6 +1,7 @@
 .wrapper {
     position: relative;
     width: 430px;
+    max-width: 100%;
     height: auto;
     min-height: 500px;
     background-color: var(--form-background);
@@ -9,6 +10,7 @@
     border: 1px solid var(--input-border-color);
     box-shadow: 0 10px 30px var(--shadow-color);
     transition: var(--transition-3s);
+    margin-top: 100px; /* Add margin to push the form down */
 }
 
 .form-headr {
@@ -130,13 +132,30 @@
     margin: -10px 0 15px 0;
 }
 
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        width: 90%;
+        padding: 100px 25px 50px;
+    }
+    .login-form {
+        width: 90%;
+    }
+}
+
 @media only screen and (max-width: 564px) {
     .wrapper {
         width: 100%;
-        min-height: 100vh;
-        border-radius: 0;
-        margin: 0;
-        border: none;
-        padding: 120px 20px 40px;
+        min-height: 0;
+        border-radius: 15px;
+        margin-top: 80px;
+        padding: 100px 20px 40px;
+        border: 1px solid var(--input-border-color);
+    }
+    .login-form {
+        width: 100%;
+    }
+    .input-field {
+        height: 50px;
+        font-size: 15px;
     }
 }

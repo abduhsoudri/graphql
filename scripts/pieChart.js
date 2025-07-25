@@ -40,11 +40,13 @@ export function createPieChart(containerId, legendId, data) {
         return;
     }
     
-    const size = 180;
+    const isMobile = window.innerWidth < 768;
+    const size = isMobile ? 150 : 180;
     const radius = size / 2;
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute('width', size);
     svg.setAttribute('height', size);
+    svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
 
     let startAngle = 0;
 

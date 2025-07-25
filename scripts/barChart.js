@@ -7,13 +7,15 @@ export function createBarChart(containerId, data) {
     container.innerHTML = '';
 
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    const paddingTop = 50;
-    const paddingBottom = 150;
-    const paddingLeft = 50;
-    const paddingRight = 50;
-
     const width = container.clientWidth;
-    const height = 600;
+    const isMobile = width < 768;
+
+    const paddingTop = 50;
+    const paddingBottom = isMobile ? 100 : 150;
+    const paddingLeft = isMobile ? 40 : 50;
+    const paddingRight = isMobile ? 20 : 50;
+
+    const height = isMobile ? 400 : 600;
     svg.setAttribute('width', '100%');
     svg.setAttribute('height', height);
     svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
@@ -104,7 +106,7 @@ export function createBarChart(containerId, data) {
         label.setAttribute('x', labelX);
         label.setAttribute('y', labelY);
         label.setAttribute('fill', textColor);
-        label.setAttribute('font-size', '9');
+        label.setAttribute('font-size', isMobile ? '8' : '9');
         label.setAttribute('text-anchor', 'end');
         label.setAttribute('transform', `rotate(-65, ${labelX}, ${labelY})`);
         label.textContent = point.object.name;
